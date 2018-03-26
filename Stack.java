@@ -10,7 +10,6 @@ public class Stack {
 
 	}
 
-
 	private Node top;
 
 
@@ -33,5 +32,29 @@ public class Stack {
 		return top.value;
 	}
 
+	
+	public int pop() {
+		if (!isEmpty()) {
+		int popval = top.value;
+		top = top.next;
+		System.out.println("Popped " + popval);
+		return popval;
+		} else {
+		System.out.println("Popped failed. Stack is Empty!");
+		}
+	return 0;
+	}
 
+
+	public void showAll() {
+		System.out.println("\nElements in Stack are:"); 
+
+		while (!isEmpty()) {
+		//int list = pop();
+		int list = top.value;
+		top = top.next;
+		System.out.println(list);
+		}
+	}
+		
 }
