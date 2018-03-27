@@ -19,7 +19,14 @@ public class App {                                                              
 
 	stack.peek();
 	
-	stack.showAll();
+	//stack.showAll();
+	stack.Reset();
+
+//	stack.peek();
+
+	stack.Init();
+
+	stack.peek();
 
 	}
 }

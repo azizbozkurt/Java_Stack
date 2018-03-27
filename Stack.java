@@ -18,11 +18,12 @@ public class Stack {
 	}
 
 
-	public void push(int input) {
+	public int push(int input) {
 		Node newNode = new Node(input);
 		newNode.next = top;
 		top = newNode;
 		System.out.println("Pushed " + newNode.value);
+		return newNode.value;
 	
 	}
 
@@ -56,5 +57,28 @@ public class Stack {
 		System.out.println(list);
 		}
 	}
-		
+
+/************************Testing Interface**********************/
+public void Reset() {
+
+	top = null;
+
+}
+
+
+public void Init() {
+
+	for(int i= 1; i<11; i++) {
+		Node newNode = new Node(i*11);
+		newNode.next = top;
+		top = newNode;
+	}
+
+	System.out.println("Initiation Succesful\n");
+
+}
+
+	
+	
+/****************************************************************/		
 }
