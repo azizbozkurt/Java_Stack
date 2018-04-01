@@ -1,3 +1,6 @@
+package azizstack;
+
+
 public class Stack {
 
 	private static class Node {
@@ -74,11 +77,9 @@ public void Init() {
 		top = newNode;
 	}
 
-	System.out.println("Initiation Succesful\n");
-
 }
 
 	
+/****************************************************************/	
 	
-/****************************************************************/		
 }
