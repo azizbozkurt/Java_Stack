@@ -38,24 +38,4 @@ public class Stack {
 		}
 	}
 
-	
-	/***************Testing Interface******************/
-	public void Reset() 
-	{	
-		top = null;
-	}
-
-	public void Init() 
-	{	
-		for (int i = 1; i < 11; i++) {
-			Node newNode = new Node();
-			newNode.value = (i * 11);
-			newNode.next = top;
-			top = newNode;
-		}
-	} 
-	 /************************************************/
-
 }
-
-

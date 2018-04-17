@@ -5,17 +5,15 @@ import azizstack.Stack;
 
 public class Testdriver {
 
-	Stack TDS = new Stack(); // Create an instance of object Stack
-
 	/*** Test of push function ***/
 	public void test_push() {
 		// Arrange
-		TDS.Reset(); // Empty the stack
+		Stack tStack = new Stack();			// Create an empty stack
 		int testvalue = 145;
 
 		// Act
-		TDS.push(testvalue);
-		int peekvalue = TDS.peek();
+		tStack.push(testvalue);
+		int peekvalue = tStack.peek();
 
 		// Assert
 		if (peekvalue == testvalue)
@@ -28,30 +26,36 @@ public class Testdriver {
 	/*** Test of pop function ***/
 	public void test_pop() {
 
-		TDS.Reset();
-		TDS.Init(); // Fill the stack with 10 elements
+		Stack tStack = new Stack();
+		for (int i = 1; i < 11; i++) {		// Fill the stack with 10 elements
+			tStack.push(i);
+		}
+				
+		int popvalue = tStack.pop();
 
-		int popvalue = TDS.pop();
-
-		if (popvalue == 110) { // Double condition test
-			popvalue = TDS.pop();
-			if (popvalue == 99)
+		if (popvalue == 10) { 				// Double condition test
+			popvalue = tStack.pop();
+			if (popvalue == 9)
 				System.out.println("\nPop Test ...Succesful\n");
 			else
 				System.out.println("\nPop Test **Failed**\n");
+		} else {
+			System.out.println("\nPop Test ***Failed***\n");
 		}
-
 	}
 
 	/*** Test of peek function ***/
 	public void test_peek() {
 
-		TDS.Reset();
-		TDS.Init();
+		Stack tStack = new Stack();
+		for (int i = 1; i < 11; i++) {
+			tStack.push(i);
+		}
 
-		int peekvalue = TDS.peek();
+		int peekvalue = tStack.peek();
 
-		if (peekvalue == 110)
+		
+		if (peekvalue == 10)
 			System.out.println("\nPeek Test ...Succesful\n");
 		else
 			System.out.println("\nPeek Test **Failed\n");
@@ -62,18 +66,23 @@ public class Testdriver {
 	public void stack_underflow() {
 		// Double condition test which is testing underflow
 		// for empty stack and filled stack
-		TDS.Reset();
+
+		Stack tStack = new Stack();
 
 		int UFvalue = 0;
 		for (int i = 0; i < 15; i++) {
-			UFvalue = TDS.pop();
+			UFvalue = tStack.pop();
 		}
 
 		if (UFvalue == -1762630107) {
-			TDS.Init();
-			for (int i = 0; i < 15; i++) {
-				UFvalue = TDS.pop();
+			for (int i = 1; i < 11; i++) {
+				tStack.push(i);
 			}
+			
+			for (int i = 0; i < 15; i++) {
+				UFvalue = tStack.pop();
+			}
+			
 			if (UFvalue == -1762630107)
 				System.out.println("\nStack Underflow Test ...Succesful\n");
 			else
@@ -81,6 +90,7 @@ public class Testdriver {
 		} else
 			System.out.println("\nStack Underflow Test **Failed\n");
 	}
+	
 
 	public static void main(String[] args) {
 
@@ -92,7 +102,7 @@ public class Testdriver {
 		TD.test_peek();
 		TD.stack_underflow();
 		TD.test_pop();
-
+		
 	}
-
+	
 }
