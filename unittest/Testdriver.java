@@ -5,7 +5,7 @@ import azizstack.Stack;
 
 public class Testdriver {
 
-	Stack TDS = new Stack(); // Create an object of type Stack
+	Stack TDS = new Stack(); // Create an instance of object Stack
 
 	/*** Test of push function ***/
 	public void test_push() {
@@ -14,10 +14,11 @@ public class Testdriver {
 		int testvalue = 145;
 
 		// Act
-		int pushvalue = TDS.push(testvalue);
+		TDS.push(testvalue);
+		int peekvalue = TDS.peek();
 
 		// Assert
-		if (pushvalue == testvalue)
+		if (peekvalue == testvalue)
 			System.out.println("\nPush Test ...Succesful\n");
 		else
 			System.out.println("\nPush Test **Failed**\n");
@@ -57,20 +58,6 @@ public class Testdriver {
 
 	}
 
-	/*** Test of showAll function ***/
-	public void test_showAll() {
-
-		TDS.Reset();
-		TDS.Init();
-
-		int showvalue = TDS.showAll();
-
-		if (showvalue == 11)
-			System.out.println("\nShowAll Test ...Succesful\n");
-		else
-			System.out.println("\nShowAll Test **Failed\n");
-	}
-
 	/*** Underflow test of the stack ***/
 	public void stack_underflow() {
 		// Double condition test which is testing underflow
@@ -103,7 +90,6 @@ public class Testdriver {
 
 		TD.test_push();
 		TD.test_peek();
-		TD.test_showAll();
 		TD.stack_underflow();
 		TD.test_pop();
 
