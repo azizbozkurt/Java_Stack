@@ -9,11 +9,11 @@ public class Testdriver {
 	public void test_push() {
 		// Arrange
 		Stack tStack = new Stack();			// Create an empty stack
-		int testvalue = 145;
+		char testvalue = 9;
 
 		// Act
 		tStack.push(testvalue);
-		int peekvalue = tStack.peek();
+		char peekvalue = tStack.peek();
 
 		// Assert
 		if (peekvalue == testvalue)
@@ -27,15 +27,15 @@ public class Testdriver {
 	public void test_pop() {
 
 		Stack tStack = new Stack();
-		for (int i = 1; i < 11; i++) {		// Fill the stack with 10 elements
+		for (char i = 0; i < 10; i++) {		// Fill the stack with 10 elements
 			tStack.push(i);
 		}
 				
-		int popvalue = tStack.pop();
+		char popvalue = tStack.pop();
 
-		if (popvalue == 10) { 				// Double condition test
+		if (popvalue == 9) { 				// Double condition test
 			popvalue = tStack.pop();
-			if (popvalue == 9)
+			if (popvalue == 8)
 				System.out.println("\nPop Test ...Succesful\n");
 			else
 				System.out.println("\nPop Test **Failed**\n");
@@ -48,14 +48,14 @@ public class Testdriver {
 	public void test_peek() {
 
 		Stack tStack = new Stack();
-		for (int i = 1; i < 11; i++) {
+		for (char i = 1; i < 10; i++) {
 			tStack.push(i);
 		}
 
-		int peekvalue = tStack.peek();
+		char peekvalue = tStack.peek();
 
 		
-		if (peekvalue == 10)
+		if (peekvalue == 9)
 			System.out.println("\nPeek Test ...Succesful\n");
 		else
 			System.out.println("\nPeek Test **Failed\n");
@@ -74,8 +74,8 @@ public class Testdriver {
 			UFvalue = tStack.pop();
 		}
 
-		if (UFvalue == -1762630107) {
-			for (int i = 1; i < 11; i++) {
+		if (UFvalue == ' ') {
+			for (char i = 0; i < 10; i++) {
 				tStack.push(i);
 			}
 			
@@ -83,7 +83,7 @@ public class Testdriver {
 				UFvalue = tStack.pop();
 			}
 			
-			if (UFvalue == -1762630107)
+			if (UFvalue == ' ')
 				System.out.println("\nStack Underflow Test ...Succesful\n");
 			else
 				System.out.println("\nStack Underflow Test **Failed\n");

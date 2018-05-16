@@ -27,36 +27,36 @@ public class App {
 
 			switch (userChoice) {
 			case (1):
-				int value;
+				char value;
 				System.out.println("Please enter the value to be pushed:");
-				value = scan.nextInt();
+				value = scan.next().charAt(0);
 				stack.push(value);
 				System.out.println("Push succesful. Pushed " + value + "\n");
 				break;
 
 			case (2):
-				int popvalue = stack.pop();
-				if (popvalue == -1762630107)
-					System.out.println("Popped failed. Stack is Empty!\n");
+				char popvalue = stack.pop();
+				if (popvalue == ' ')
+					System.out.println("No element to Pop. Stack is Empty!\n");
 				else
 					System.out.println("Popping succesful. Popped " + popvalue + "\n");
 				break;
 
 			case (3):
-				int peekvalue = stack.peek();
-				if (peekvalue == -1762630107)
-					System.out.println("No element to peek. Stack is Empty!\n");
+				char peekvalue = stack.peek();
+				if (peekvalue == ' ')
+					System.out.println("No element to Peek. Stack is Empty!\n");
 				else
 					System.out.println("Peek value is: " + peekvalue + "\n");
 				break;
 
 			case (4):
-				int probe = stack.peek();
-				if (probe == -1762630107) {
-					System.out.println("No elements to show. Stack is Empty!\n");
+				char probe = stack.peek();
+				if (probe == ' ') {
+					System.out.println("No elements to Show. Stack is Empty!\n");
 				} else {
 					System.out.println("Elements in Stack are:");
-					int list = -1;
+					char list = 'z';
 					while (!stack.isEmpty()) {
 						list = stack.pop();
 						System.out.println(list);

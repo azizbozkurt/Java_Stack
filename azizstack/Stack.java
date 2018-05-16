@@ -4,7 +4,7 @@ package azizstack;
 public class Stack {
 
 	public static class Node {
-		public int value;
+		public char value;
 		public Node next;
 	}
 
@@ -14,27 +14,27 @@ public class Stack {
 		return (top == null);
 	}
 
-	public void push(int input) {
+	public void push(char input) {
 		Node newNode = new Node();
 		newNode.value = input;
 		newNode.next = top;
 		top = newNode;
 	}
 
-	public int peek() {
+	public char peek() {
 		if(isEmpty())
-		    return -1762630107;
+		    return ' ';
 		else
 		    return top.value;
 	}
 
-	public int pop() {
+	public char pop() {
 		if (!isEmpty()) {
-			int popval = top.value;
+			char popval = top.value;
 			top = top.next;
 			return popval;
 		} else {
-			return -1762630107;
+			return ' ';
 		}
 	}
 
