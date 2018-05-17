@@ -2,6 +2,8 @@
 package stackapp;
 
 import azizstack.Stack;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -22,8 +24,14 @@ public class App {
 			System.out.println("Press 4 to Show All");
 			System.out.println("Press 0 to Exit\n");
 
-			int userChoice = -1; 
-			userChoice = scan.nextInt();
+			int userChoice = -1;
+			try {
+				userChoice = scan.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Dont try to hack the code! Invalid choice! Please choose options 0-4.");
+				break;
+			}
+			
 
 			switch (userChoice) {
 			case (1):
@@ -35,34 +43,36 @@ public class App {
 				break;
 
 			case (2):
-				char popvalue = stack.pop();
-				if (popvalue == ' ')
-					System.out.println("No element to Pop. Stack is Empty!\n");
-				else
+				try {
+					char popvalue = stack.pop();
 					System.out.println("Popping succesful. Popped " + popvalue + "\n");
+				} catch (NullPointerException e) {
+					System.out.println("No elements to Pop. Stack is Empty!\n");
+				}
 				break;
 
 			case (3):
-				char peekvalue = stack.peek();
-				if (peekvalue == ' ')
-					System.out.println("No element to Peek. Stack is Empty!\n");
-				else
+				try {
+					char peekvalue = stack.peek();
 					System.out.println("Peek value is: " + peekvalue + "\n");
+				} catch (NullPointerException e) {
+					System.out.println("No element to Peek. Stack is Empty!\n");
+				}
 				break;
 
 			case (4):
-				char probe = stack.peek();
-				if (probe == ' ') {
-					System.out.println("No elements to Show. Stack is Empty!\n");
-				} else {
+				try {
+					char probe = stack.peek();
 					System.out.println("Elements in Stack are:");
-					char list = 'z';
-					while (!stack.isEmpty()) {
+					char list = ' ';
+					while (true) {
 						list = stack.pop();
 						System.out.println(list);
 					}
-					System.out.println();
+				} catch (NullPointerException e) {
+					System.out.println("No elements left to Show. Stack is Empty!\n");
 				}
+				System.out.println();
 				break;
 
 			case (0):

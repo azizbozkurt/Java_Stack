@@ -66,31 +66,31 @@ public class Testdriver {
 	public void stack_underflow() {
 		// Double condition test which is testing underflow
 		// for empty stack and filled stack
-
+		
 		Stack tStack = new Stack();
-
-		int UFvalue = 0;
+		char UFvalue = 7;
+		
 		for (int i = 0; i < 15; i++) {
-			UFvalue = tStack.pop();
-		}
-
-		if (UFvalue == ' ') {
-			for (char i = 0; i < 10; i++) {
-				tStack.push(i);
-			}
-			
-			for (int i = 0; i < 15; i++) {
+			try {
 				UFvalue = tStack.pop();
+				System.out.println("Stack Underflow Test **Failed\n");
+			} catch (NullPointerException e) {
+				
 			}
+		}
+		
+		for (char i = 0; i < 10; i++) {
+		tStack.push(i);
+		}
 			
-			if (UFvalue == ' ')
+		for (int i = 0; i < 11; i++) {
+			try {
+				UFvalue = tStack.pop();
+			} catch (NullPointerException e) {
 				System.out.println("\nStack Underflow Test ...Succesful\n");
-			else
-				System.out.println("\nStack Underflow Test **Failed\n");
-		} else
-			System.out.println("\nStack Underflow Test **Failed\n");
+			}
+		}
 	}
-	
 
 	public static void main(String[] args) {
 
@@ -101,8 +101,7 @@ public class Testdriver {
 		TD.test_push();
 		TD.test_peek();
 		TD.stack_underflow();
-		TD.test_pop();
-		
+		TD.test_pop();		
 	}
 	
 }
