@@ -6,8 +6,14 @@ import azizstack.Stack;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * <h3>This class includes the UI for the stack</h3>
+ * @author ABXGD2
+ *
+ */
 public class App {
-
+	
+	
 	public void Menu() {
 		System.out.println("+***********************************************************************+");
 		System.out.println("|	 		 Stack implemented with Linked List		|");
@@ -84,7 +90,8 @@ public class App {
 			}
 		}
 	}
-
+	
+	
 	public static void main(String[] args) {
 
 		App app = new App();
